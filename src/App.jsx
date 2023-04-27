@@ -9,6 +9,7 @@ import LoginMain from './components/LoginMain/LoginMain';
 import ProductResevation from './components/Product/ProductResevation';
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // Pages
 import Places from "./pages/place/Places";
@@ -16,7 +17,9 @@ import Places from "./pages/place/Places";
 // Routes
 import Home from "./pages/Home";
 import { useState } from "react";
+import Reviews from "./components/Reviews";
 import MyPage from "./components/MyPage";
+import Register from "./components/Register";
 
 export default function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -32,7 +35,12 @@ export default function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/pwid" element={<Pwid/>} />
 
+        {/* 임시 설정 */}
+          <Route path="/reviews" element={<Reviews />} /> 
+          <Route path="/mypage" element={<MyPage />} />
+
         {/* 게스트에게만 열려있는 페이지 */}
+          <Route path="/register" element={<Register />} />
         
 
         {/* 로그인이 필요한 페이지 */}
@@ -45,7 +53,9 @@ export default function App() {
         
 
         {/* 404 페이지 */}
+          <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
